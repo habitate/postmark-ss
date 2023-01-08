@@ -3,7 +3,12 @@ package io.habitate.libs.postmark.client.data.model.message;
 import io.habitate.libs.postmark.client.data.model.FileDetails;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Base email message object
@@ -180,23 +185,27 @@ public class BaseMessage {
         return textBody;
     }
 
-    public void setTextBody(String textBody) {
-        this.textBody = textBody;
-    }
+  public void setTextBody(String textBody) {
+    this.textBody = textBody;
+  }
 
-    public String getReplyTo() {
-        return replyTo;
-    }
+  public String getReplyTo() {
+    return replyTo;
+  }
 
-    public void setReplyTo(String replyTo) {
-        this.replyTo = replyTo;
-    }
+  public void setReplyTo(String replyTo) {
+    this.replyTo = replyTo;
+  }
 
-    public String getTag() {
-        return tag;
-    }
+  public void setReplyTo(String name, String replyTo) {
+    this.replyTo = convertRecipient(name, replyTo);
+  }
 
-    public void setTag(String tag) {
+  public String getTag() {
+    return tag;
+  }
+
+  public void setTag(String tag) {
         this.tag = tag;
     }
 
